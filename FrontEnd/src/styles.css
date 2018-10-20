@@ -21,18 +21,28 @@ app-root {
     display: block;
 }
 
+.myLogo {
+    display: block;
+    width: 100px;
+    height: 150px;
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    margin-left: -50px;
+
+}
+
 .loader {
-    text-align: center;
     display: block;
     overflow: hidden;
-    margin-top: 20%;
-    /* margin: 0 auto; */
+    text-align: center;
+    margin-top: 10%;
     font-size: 0;
 }
 
 @media only screen and (min-width: 100px) { 
     .loader {
-        margin-top: 70%;
+        /* write code here... */
     }
 }
 

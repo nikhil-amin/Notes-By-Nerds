@@ -1,0 +1,34 @@
+<form #feedbackForm="ngForm" (ngSubmit)="onSubmit(feedbackForm)" class="form-style-9" >
+    
+
+    <p>We would love to hear from you...</p>
+    <ul>
+    <li>
+        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="feedbackService.selectedFeedback._id">
+        <input type="text" name="name" #name="ngModel" [(ngModel)]="feedbackService.selectedFeedback.name" class="field-style field-full align-none" placeholder="Name" />
+        <!-- <input type="email" name="field2" class="field-style field-split align-right" placeholder="Email" />    -->
+    </li>
+    <li>
+        <!-- <input type="text" name="field3" class="field-style field-split align-left" placeholder="Phone" /> -->
+        <!-- <input type="url" name="field4" class="field-style field-split align-right" placeholder="Website" /> -->
+        <input type="email" name="email" #email="ngModel" [(ngModel)]="feedbackService.selectedFeedback.email" class="field-style field-full align-none" placeholder="Email" />
+    </li>
+    <li>
+    <textarea name="message" #message="ngModel" [(ngModel)]="feedbackService.selectedFeedback.message" class="field-style" placeholder="Message"></textarea>
+    </li>
+    <li>
+    <button class="btn btn-success right" type="submit" [disabled]="!feedbackForm.valid">Submit</button>
+    <button class="btn btn-warning right" type="button" (click)="resetForm(feedbackForm)">Reset</button>
+    </li>
+    <div class="alert alert-success" *ngIf='completeForm'>
+      <li>
+        <strong>Thank You!</strong> for your valuable feedback.
+      </li>
+    </div>
+    <div class="alert alert-danger" *ngIf='incompleteForm'>
+        <li>
+          <strong>Oops!</strong> Kindly write some message.
+        </li>
+      </div>
+    </ul>
+</form>
