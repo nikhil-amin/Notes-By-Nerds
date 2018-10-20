@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+  <img src="assets/logo.png">
+
+  <a class="navbar-brand" [routerLinkActive]="['active']" routerLink="/">
+    <span style="display: inline-block; margin-left: 10px;"> Notes by Nerds </span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav ml-auto" style="margin-right: 40px">
+      <li class="nav-item">
+        <a class="nav-link" [routerLinkActive]="['active']" routerLink="/about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLinkActive]="['active']" routerLink="/feedback">Contact</a>
+      </li>
+      <!-- <ng-template #anonymousUser> -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+      <!-- </ng-template>   -->
+      <li ngbDropdown class="nav-item dropdown navbar-right">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{username}}
+        </a>
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" routerLink="notes">My Notes</a>
+          <a class="dropdown-item" routerLink="notes">Request Notes</a>
+          <a class="dropdown-item" routerLink="notes">Approve Requests</a>
+          <a class="dropdown-item" routerLink="notes">Manage Notes</a>
+          <a class="dropdown-item" (click)="logout()">Logout</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
