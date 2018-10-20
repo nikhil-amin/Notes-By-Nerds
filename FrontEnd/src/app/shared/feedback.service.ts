@@ -9,7 +9,7 @@ import { Feedback } from './feedback.model';
 export class FeedbackService {
   selectedFeedback: Feedback;
   feedbacks: Feedback[];
-  readonly baseURL = 'http://localhost:3000/feedbacks';
+  readonly baseURL = 'http://127.0.0.1:3000/feedbacks';
 
   constructor(private http: HttpClient) { }
 
