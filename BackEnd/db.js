@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/notesbynerdsdb', (err) => {
+mongoose.connect('mongodb://localhost:27017/notesbynerdsdb', { useNewUrlParser: true }, (err) => {
     if (!err)
         console.log('MongoDB connection for Notes By Nerds succeeded.');
     else
