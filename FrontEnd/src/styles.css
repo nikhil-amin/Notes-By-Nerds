@@ -11,7 +11,8 @@ body {
     align-items: stretch;
     height: 100vh;
     background-size: cover;
-    font-family: "Roboto",'PT Sans', sans-serif;
+    /* font-family: "Roboto",'PT Sans', sans-serif; */
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
 }
 
 app-root {
