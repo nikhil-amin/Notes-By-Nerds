@@ -8,8 +8,8 @@ li {
 }
 
 .navbar {
-    -webkit-box-shadow: 0 8px 6px -6px #999;
-    -moz-box-shadow: 0 8px 6px -6px #999;
+    -webkit-box-shadow: 0 8px 6px -6px #76b852;
+    -moz-box-shadow: 0 8px 6px -6px #76b852;
     box-shadow: 0 8px 6px -6px #76b852;
     position: relative;
 }
@@ -20,6 +20,11 @@ img {
     height: 1%;
     display: inline-block;
 }
+
+.navbar-nav a:hover {
+    border-bottom: 1px solid #999;
+}
+
 
 @media only screen and (max-width: 700px) { 
     img {
