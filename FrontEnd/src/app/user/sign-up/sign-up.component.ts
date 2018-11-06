@@ -10,7 +10,10 @@ import { UserService } from '../../shared/user.service'
 })
 export class SignUpComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) { 
+    document.body.style.backgroundImage = "url('assets/homeBG.jpg')";
+    // document.body.style.background = '#56baed';
+  }
 
   ngOnInit() {
   }
