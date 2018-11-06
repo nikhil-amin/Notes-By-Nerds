@@ -7,4 +7,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/notesbynerdsdb', { useNewUrlParser: 
         console.log('Error in DB connection : ' + JSON.stringify(err, undefined, 2));
 });
 
+mongoose.set('useCreateIndex', true)
+
 module.exports = mongoose;
