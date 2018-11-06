@@ -15,8 +15,8 @@ router.post('/register', (req, res, next) => {
             if (err.code == 11000)
                 res.status(422).send(['Duplicate email adrress found.']);
             else
-                // return next(err);
-                console.log('Error in registering user: ' + JSON.stringify(err, undefined, 2));
+                return next(err);
+                // console.log('Error in registering user: ' + JSON.stringify(err, undefined, 2));
         }
     });
 });
