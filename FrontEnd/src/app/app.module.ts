@@ -9,6 +9,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { FeedbacksComponent } from './feedbacks/feedbacks.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { NotesComponent } from './notes/notes.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { FeedbacksComponent } from './feedbacks/feedbacks.component';
     NavBarComponent,
     HomeComponent,
     AboutComponent,
-    FeedbacksComponent
+    FeedbacksComponent,
+    LoginComponent,
+    RegisterComponent,
+    NotesComponent
   ],
   imports: [
     BrowserModule,
