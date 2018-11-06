@@ -41,12 +41,14 @@ export class FeedbacksComponent implements OnInit {
       this.feedbackService.postFeedback(form.value).subscribe((res) => {
         this.resetForm(form);
         this.completeForm = true;
+        setTimeout(() => this.completeForm = false, 4000);
         this.incompleteForm = false;
       });
     }
     else {
       this.completeForm = false;
       this.incompleteForm = true;
+      setTimeout(() => this.incompleteForm = false, 4000);
     }
   }
 
