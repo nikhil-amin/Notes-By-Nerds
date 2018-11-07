@@ -5,7 +5,7 @@
     margin: 50px auto;
     box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
     border-radius: 10px;
-    border: 6px solid #76b852;
+    border: 6px solid #5fbae9;
 }
 .form-style-9 ul{
     padding:0;
@@ -23,11 +23,11 @@
     -moz-box-sizing: border-box; 
     padding: 8px;
     outline: none;
-    border: 1px solid #76b852;
+    border: 1px solid #5fbae9;
 
 }.form-style-9 ul li  .field-style:focus{
-    box-shadow: 0 0 5px #76b852;
-    border:1px solid #76b852;
+    box-shadow: 0 0 5px #5fbae9;
+    border:1px solid #5fbae9;
 }
 .form-style-9 ul li .field-full{
     width: 100%;
@@ -48,8 +48,8 @@
     
 }
 .form-style-9 ul li button[type="submit"]:hover {
-    background: linear-gradient(to bottom, #76b852 5%, #76b852 100%);
-    background-color: #76b852;
+    background: linear-gradient(to bottom, #5fbae9 5%, #5fbae9 100%);
+    background-color: #5fbae9;
 }
 .form-style-9 ul li button[type="button"]:hover, {
     background: linear-gradient(to bottom, #FA762A 5%, #FA762A 100%);

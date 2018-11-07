@@ -12,7 +12,7 @@
       <textarea name="message" #message="ngModel" [(ngModel)]="feedbackService.selectedFeedback.message" class="field-style" placeholder="Message"></textarea>
     </li>
     <li>
-      <button class="btn btn-success right" type="submit" [disabled]="!feedbackForm.valid">Submit</button>
+      <button class="btn btn-primary right" type="submit" [disabled]="!feedbackForm.valid">Submit</button>
       <button class="btn btn-warning right" type="button" (click)="resetForm(feedbackForm)">Reset</button>
     </li>
     <div class="alert alert-success" *ngIf='completeForm'>
