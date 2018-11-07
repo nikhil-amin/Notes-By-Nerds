@@ -1,19 +1,19 @@
 require('./db.js');
+require('./config/passportConfig');
 
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const passport = require('passport');
 
-// const { mongoose } = require('./db.js');
 var feedbackController = require('./controllers/feedbackController.js');
-// var userController = require('./controllers/userController.js');
 const rtsIndex = require('./routes/index-routes');
 
 var app = express();
 
 app.use(bodyParser.json());
 app.use(cors({ origin: 'http://127.0.0.1:4200' }));
-
+app.use(passport.initialize());
 app.use('/feedbacks', feedbackController);
 app.use('/api', rtsIndex);
 
