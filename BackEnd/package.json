@@ -13,6 +13,10 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.4",
-    "mongoose": "^5.3.4"
+    "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.3.4",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   }
 }
