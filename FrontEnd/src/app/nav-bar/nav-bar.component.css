@@ -1,31 +1,24 @@
 a:hover {
     cursor: pointer;
 }
-
 li {
     display: inline;
     margin-right: 40px;
 }
-
 .navbar {
     -webkit-box-shadow: 0 8px 6px -6px #999999;
     -moz-box-shadow: 0 8px 6px -6px #999999;
     box-shadow: 0 8px 6px -6px #999999;
     position: relative;
 }
-
 img {
-
     width: 3%;
     height: 1%;
     display: inline-block;
 }
-
 .navbar-nav a:hover {
     border-bottom: 1px solid #999;
 }
-
-
 @media only screen and (max-width: 700px) { 
     img {
         width: 7%;

@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css";
-
 body {
     padding: 0;
     margin: 0;
@@ -14,14 +13,12 @@ body {
     /* font-family: "Roboto",'PT Sans', sans-serif; */
     font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
 }
-
 app-root {
     order: 0;
     flex: 1 1 auto;
     align-self: auto;
     display: block;
 }
-
 .myLogo {
     display: block;
     width: 100px;
@@ -32,7 +29,6 @@ app-root {
     margin-left: -50px;
 
 }
-
 .loader {
     display: block;
     overflow: hidden;
@@ -40,13 +36,6 @@ app-root {
     margin-top: 10%;
     font-size: 0;
 }
-
-@media only screen and (min-width: 100px) { 
-    .loader {
-        /* write code here... */
-    }
-}
-
 .loader-item {
     display: inline-block;
     width: 50px;
@@ -58,45 +47,30 @@ app-root {
     animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
     animation-iteration-count: infinite;
 }
-
 .loader-item:nth-child(1) {
     animation-delay: 100ms;
 }
-
 .loader-item:nth-child(2) {
     animation-delay: 200ms;
 }
-
 .loader-item:nth-child(3) {
     animation-delay: 300ms;
 }
-
 .loader-item:nth-child(4) {
     animation-delay: 400ms;
 }
-
 .loader-item:nth-child(5) {
     animation-delay: 500ms;
 }
-
 .loader-item:nth-child(6) {
     animation-delay: 600ms;
 }
-
 .loader--fade .loader-item {
     animation-name: fade;
     animation-duration: 1000ms;
 }
-
 @keyframes fade {
-    0% {
-    opacity: 0;
-    }
-    50% {
-    opacity: 1;
-    }
-    100% {
-    opacity: 0;
-    }
-}
-  
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}  
