@@ -17,5 +17,5 @@ mongoose.connect('mongodb://root:root073@ds147233.mlab.com:47233/notesbynerdsdb'
 // });
 
 mongoose.set('useCreateIndex', true)
-
+require('./models/user');
 module.exports = mongoose;

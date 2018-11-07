@@ -1,14 +1,14 @@
-const express = require('express');
-var router = express.Router();
+const mongoose = require('mongoose');
+// const express = require('express');
+const User = mongoose.model('User');
 
-var { User } = require('../models/user');
+// var { User } = require('../models/user');
 
-router.post('/register', (req, res, next) => {
-    var user = new User ({
-        fullName: req.body.fullName,
-        email: req.body.email,
-        password: req.body.password,
-    });
+module.exports.register = (req, res, next) => {
+    var user = new User ();
+    user.fullName = req.body.fullName;
+    user.email = req.body.email;
+    user.password = req.body.password;
     user.save((err, docs) => {
         if(!err) { res.send(docs); }
         else { 
@@ -19,6 +19,6 @@ router.post('/register', (req, res, next) => {
                 // console.log('Error in registering user: ' + JSON.stringify(err, undefined, 2));
         }
     });
-});
+}
 
-module.exports = router;
+// module.exports = router;
