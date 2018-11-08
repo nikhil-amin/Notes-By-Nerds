@@ -7,6 +7,7 @@ import { User } from './user.model';
   providedIn: 'root'
 })
 export class UserService {
+  loginStatus = false;
 
   selectedUser: User = {
     fullName: '',
@@ -15,7 +16,7 @@ export class UserService {
   };
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
-  
+
   constructor(private http: HttpClient) { }
 
   postUser(user: User){
@@ -40,6 +41,7 @@ export class UserService {
 
   deleteToken() {
     localStorage.removeItem('token');
+    this.loginStatus = false
   }
 
   getUserPayload() {
@@ -53,6 +55,7 @@ export class UserService {
   }
 
   isLoggedIn() {
+    this.loginStatus = true
     var userPayload = this.getUserPayload();
     if (userPayload)
       return userPayload.exp > Date.now() / 1000;
