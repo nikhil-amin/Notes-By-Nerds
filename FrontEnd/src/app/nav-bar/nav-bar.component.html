@@ -19,11 +19,11 @@
       </li>
       <!-- <ng-template #anonymousUser> -->
         <li *ngIf="LoginStatus == 'false'" class="nav-item">
-          <a class="nav-link" (click)= "toggleNavbar()" routerLink="/signup">JOIN-US</a>
+          <a class="nav-link" (click)= "toggleNavbar()" [routerLinkActive]="['active']" routerLink="/signup">JOIN-US</a>
         </li>
       <!-- </ng-template>   -->
       <li *ngIf="LoginStatus == 'true'" ngbDropdown class="nav-item dropdown">
-        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" [routerLinkActive]="['active']" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{username}}
         </a>
         <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
