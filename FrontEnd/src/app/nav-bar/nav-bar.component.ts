@@ -8,11 +8,22 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  username:String='Username';
-  constructor(private userService: UserService, private router: Router) { }
+  username:String='USERNAME';
+  LoginStatus:String;
 
-  LoginStatus:boolean = this.userService.loginStatus;
-  ngOnInit() { }
+  constructor(private userService: UserService, private router: Router) { 
+    this.LoginStatus = this.userService.loginStatus;
+    console.log(this.LoginStatus)
+
+  }
+
+  
+  ngOnInit() { 
+    this.userService.loginStatusEmitter.subscribe(status => {
+      this.LoginStatus = status;
+      console.log(this.LoginStatus)
+    })
+  }
 
   navbarOpen = false;
   toggleNavbar() {

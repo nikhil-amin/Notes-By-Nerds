@@ -12,19 +12,19 @@
   <div class="collapse navbar-collapse" [ngClass]="{'show':navbarOpen}">
     <ul class="nav navbar-nav ml-auto" style="margin-right: 40px">
       <li class="nav-item">
-        <a class="nav-link" (click)= "toggleNavbar()" [routerLinkActive]="['active']" routerLink="/about">About</a>
+        <a class="nav-link" (click)= "toggleNavbar()" [routerLinkActive]="['active']" routerLink="/about">ABOUT</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)= "toggleNavbar()" [routerLinkActive]="['active']" routerLink="/contact">Contact</a>
+        <a class="nav-link" (click)= "toggleNavbar()" [routerLinkActive]="['active']" routerLink="/contact">CONTACT</a>
       </li>
       <!-- <ng-template #anonymousUser> -->
-        <li class="nav-item">
-          <a class="nav-link" (click)= "toggleNavbar()" routerLink="/signup">Sign-Up</a>
+        <li *ngIf="LoginStatus == 'false'" class="nav-item">
+          <a class="nav-link" (click)= "toggleNavbar()" routerLink="/signup">JOIN-US</a>
         </li>
       <!-- </ng-template>   -->
-      <li ngbDropdown class="nav-item dropdown">
+      <li *ngIf="LoginStatus == 'true'" ngbDropdown class="nav-item dropdown">
         <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{username}} ({{LoginStatus}})
+          {{username}}
         </a>
         <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
           <a class="dropdown-item" routerLink="notes">My Notes</a>

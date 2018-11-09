@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { User } from './user.model';
@@ -7,7 +7,8 @@ import { User } from './user.model';
   providedIn: 'root'
 })
 export class UserService {
-  loginStatus = false;
+  @Output() loginStatusEmitter: EventEmitter<String> = new EventEmitter()
+  loginStatus = "false";
 
   selectedUser: User = {
     fullName: '',
@@ -40,8 +41,9 @@ export class UserService {
   }
 
   deleteToken() {
-    localStorage.removeItem('token');
-    this.loginStatus = false
+    this.loginStatus = "false"
+    this.loginStatusEmitter.emit(this.loginStatus);
+    localStorage.removeItem('token');   
   }
 
   getUserPayload() {
@@ -55,10 +57,12 @@ export class UserService {
   }
 
   isLoggedIn() {
-    this.loginStatus = true
     var userPayload = this.getUserPayload();
-    if (userPayload)
+    if (userPayload){
+      this.loginStatus = "true"
+      this.loginStatusEmitter.emit(this.loginStatus);
       return userPayload.exp > Date.now() / 1000;
+    }
     else
       return false;
   }
