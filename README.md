@@ -25,3 +25,6 @@ Now open your browser and go to http://localhost:4200
 ## Please open an issue if
 * you have any suggestion to improve this project
 * you noticed any problem or error
+
+### Author
+* [Nikhil Amin](https://github.com/nikhil-amin)
