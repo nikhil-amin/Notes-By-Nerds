@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../shared/user.service';
 
@@ -8,7 +9,7 @@ import { UserService } from '../shared/user.service';
 })
 export class NavBarComponent implements OnInit {
   username:String='Username';
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   LoginStatus:boolean = this.userService.loginStatus;
   ngOnInit() { }
@@ -16,6 +17,11 @@ export class NavBarComponent implements OnInit {
   navbarOpen = false;
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
+  }
+
+  onLogout(){
+    this.userService.deleteToken();
+    this.router.navigate(['/login']);
   }
 
 }
