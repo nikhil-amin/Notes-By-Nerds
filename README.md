@@ -20,7 +20,7 @@ Now run the following command from the [BackEnd](https://github.com/nikhil-amin/
 
 > `npm start`
 
-Now open your browser and go to http://localhost:4200 
+Now open your browser and go to http://127.0.0.1:4200 
 
 ## Please open an issue if
 * you have any suggestion to improve this project
