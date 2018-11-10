@@ -37,4 +37,22 @@ router.post('/', (req, res) => {
     });
 });
 
+router.put('/:id', (req, res) => {
+    if (!ObjectId.isValid(req.params.id))
+        return res.status(400).send(`No notes record with given id : ${req.params.id}`);
+
+    var note = {
+        title: req.body.title,
+        author: req.body.author,
+        price: req.body.price,
+        uploaderName: req.body.uploaderName,
+        uploaderEmail: req.body.uploaderEmail,
+        lastModified: new Date()
+    };
+    Note.findByIdAndUpdate(req.params.id, { $set: emp }, { new: true }, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in Notes Update :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
+
 module.exports = router;
