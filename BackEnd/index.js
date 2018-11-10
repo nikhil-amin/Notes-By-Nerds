@@ -13,7 +13,7 @@ const rtsIndex = require('./routes/index-routes');
 var app = express();
 
 app.use(bodyParser.json());
-app.use(cors({ origin: 'http://127.0.0.1:4200' }));
+app.use(cors({ origin: ['http://localhost:4200', 'http://127.0.0.1:4200'] }));
 app.use(passport.initialize());
 app.use('/feedbacks', feedbackController);
 app.use('/notes', noteController);
