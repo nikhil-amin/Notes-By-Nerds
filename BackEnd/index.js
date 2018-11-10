@@ -7,6 +7,7 @@ const cors = require('cors');
 const passport = require('passport');
 
 var feedbackController = require('./controllers/feedbackController.js');
+var noteController = require('./controllers/noteController.js');
 const rtsIndex = require('./routes/index-routes');
 
 var app = express();
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 app.use(cors({ origin: 'http://127.0.0.1:4200' }));
 app.use(passport.initialize());
 app.use('/feedbacks', feedbackController);
+app.use('/notes', noteController);
 app.use('/api', rtsIndex);
 
 // error handler
