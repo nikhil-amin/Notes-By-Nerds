@@ -8,9 +8,10 @@ router.post('/', (req, res) => {
         title: req.body.title,
         author: req.body.author,
         price: req.body.price,
-        uploadername: req.body.uploadername,
-        uploaderemail: req.body.uploaderemail,
-        uploadedOn: new Date()
+        uploaderName: req.body.uploaderName,
+        uploaderEmail: req.body.uploaderEmail,
+        uploadedOn: new Date(),
+        lastModified: new Date()
     });
     note.save((err, docs) => {
         if(!err) { res.send(docs); }

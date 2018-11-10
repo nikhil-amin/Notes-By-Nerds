@@ -12,15 +12,18 @@ var Note = mongoose.model('Note', {
     price: {
         type: String,
     },
-    uploadername: {
+    uploaderName: {
         type: String,
         required: 'Your name can\'t be empty',
     },
-    uploaderemail: {
+    uploaderEmail: {
         type: String,
         required: 'Email can\'t be empty',
     },
     uploadedOn: {
+        type: String
+    },
+    lastModified: {
         type: String
     }
 });
