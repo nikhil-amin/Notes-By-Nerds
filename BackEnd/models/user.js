@@ -7,6 +7,9 @@ var userSchema = new mongoose.Schema({
         type: String,
         required: 'Full name can\'t be empty'
     },
+    city: {
+        type: String
+    },
     email: {
         type: String,
         required: 'Email can\'t be empty',
@@ -19,7 +22,7 @@ var userSchema = new mongoose.Schema({
     },
     saltSecret: {
         type: String
-    }
+    }   
 });
 
 // Custom validation for email
