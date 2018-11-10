@@ -47,9 +47,9 @@ export class ControlPanelComponent implements OnInit {
       this.noteService.postNote(form.value).subscribe((res) => {
         this.resetForm(form);
         this.refreshNoteList();
-        this.formSuccess = true;
-        setTimeout(() => this.formSuccess = false, 4000);
-        this.formFailure = false;
+        // this.formSuccess = true;
+        // setTimeout(() => this.formSuccess = false, 4000);
+        // this.formFailure = false;
       });
     }
     else {
