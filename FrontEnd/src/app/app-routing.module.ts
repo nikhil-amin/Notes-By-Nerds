@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
+import { ControlPanelComponent } from './control-panel/control-panel.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
     children: [{ path: '', component: SignInComponent }]
   },
   {path:'userprofile',component:UserProfileComponent, canActivate:[AuthGuard]},
+  {path:'control-panel',component:ControlPanelComponent, canActivate:[AuthGuard]},
 ];
 
 @NgModule({

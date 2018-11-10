@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="wrapper"> 
+      <div id="formContent">
+        <h2 class="underlineHover"> Add Notes </h2>
+        <form #noteForm="ngForm" (ngSubmit)="onSubmit(noteForm)">
+          <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="noteService.selectedNote._id">
+          <input type="text" name="title" #title="ngModel" [(ngModel)]="noteService.selectedNote.title" placeholder="Enter Book Title" required>
+          <input type="text" name="author" #author="ngModel" [(ngModel)]="noteService.selectedNote.author" placeholder="Enter Book Author">
+          <input type="text" name="price" #price="ngModel" [(ngModel)]="noteService.selectedNote.price" placeholder="Enter Book Price">
+          <input type="text" name="uploaderName" #uploaderName="ngModel" [(ngModel)]="noteService.selectedNote.uploaderName" placeholder="Enter Your Fullname">
+          <input type="text" name="uploaderEmail" #uploaderEmail="ngModel" [(ngModel)]="noteService.selectedNote.uploaderEmail" placeholder="Enter Your Email">
+          <input type="submit" value="Submit">
+          <input type="button" (click)="resetForm(noteForm)" value="Reset">
+        
+        </form>
+        <!-- Success message -->
+        <div class="success" *ngIf='formSucces'>
+            Saved successfully
+        </div>
+          
+          <!-- Error message -->
+        <div class="alert" *ngIf='formFailure'>
+            serverErrorMessages
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+      <div class="wrapper"> 
+        <div id="formContent">
+          <h2 class="underlineHover"> Your Notes </h2>
+          <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th>Price</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tr *ngFor="let note of noteService.notes">
+                <td>{{note.title}}</td>
+                <td>{{note.author}}</td>
+                <td>{{note.price}}</td>
+                <td>
+                      <button type="button" (click)="onEdit(note)" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-pencil"></span> Edit
+                      </button>
+                </td>
+                <td>
+                    <button type="button" (click)="onDelete(note._id,noteForm)" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-trash"></span> Delete
+                    </button>
+                </td>
+              </tr>
+            </table>
+        </div>
+      </div>
+    </div>
+</div>
