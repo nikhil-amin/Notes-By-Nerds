@@ -1,27 +1,137 @@
-<table *ngIf="userDetails" class="table-fill">
-    <thead>
-        <tr>
-            <th colspan="2" class="text-center">User Profile</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>First Name</td>
-            <td>{{userDetails.fullName.split(' ')[0]}}</td>
-        </tr>
-        <tr>
-            <td>Last Name</td>
-            <td>{{userDetails.fullName.split(' ')[1]}}</td>
-        </tr>
-        <tr>
-            <td>Email</td>
-            <td>{{userDetails.email}}</td>
-        </tr>
-        <tr>
-            <td colspan="2" class="text-center">
-                <input type="button" (click)="onLogout()" value="Logout" />
-            </td>
-        </tr>
-    </tbody>
-  </table>
-  
+<div *ngIf="userDetails" class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img src="https://avatars0.githubusercontent.com/u/34246901?s=460&v=4" alt="" />
+                    <div class="file btn btn-lg btn-primary">
+                        Change Photo
+                        <input type="file" name="file" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <h5>
+                            {{userDetails.fullName.split(' ')[0]}} {{userDetails.fullName.split(' ')[1]}}
+                    </h5>
+                    <h6>
+                        Web Developer and Designer
+                    </h6>
+                    <p class="proile-rating">Class Of : <span>2019</span></p>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-work">
+                    <p>Social Links</p>
+                    <a routerLink="userprofile" class="fa fa-facebook"></a>
+                    <a routerLink="userprofile" class="fa fa-twitter"></a>
+                    <a routerLink="userprofile" class="fa fa-google"></a>
+                    <a routerLink="userprofile" class="fa fa-instagram"></a>
+                    <a routerLink="userprofile" class="fa fa-github"></a>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>USN</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>4PA15CS073</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{userDetails.fullName}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{userDetails.email}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Phone</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>+91 812 304 4768</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Profession</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Web Developer and Designer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Day Joined</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>21/10/2018</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Branch Studied</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>CSE</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Date Of Birth</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>14/05/1997</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Location</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Mangalore</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Currently In</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
