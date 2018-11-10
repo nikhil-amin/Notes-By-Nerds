@@ -49,9 +49,19 @@ router.put('/:id', (req, res) => {
         uploaderEmail: req.body.uploaderEmail,
         lastModified: new Date()
     };
-    Note.findByIdAndUpdate(req.params.id, { $set: emp }, { new: true }, (err, doc) => {
+    Note.findByIdAndUpdate(req.params.id, { $set: note }, { new: true }, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Notes Update :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
+
+router.delete('/:id', (req, res) => {
+    if (!ObjectId.isValid(req.params.id))
+        return res.status(400).send(`No notes record with given id : ${req.params.id}`);
+
+    Note.findByIdAndRemove(req.params.id, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in Notes Delete :' + JSON.stringify(err, undefined, 2)); }
     });
 });
 
