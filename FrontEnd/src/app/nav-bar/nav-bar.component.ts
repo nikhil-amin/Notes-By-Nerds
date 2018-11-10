@@ -8,21 +8,31 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  username:String='USERNAME';
+  userDetails;
+  username:String;
   LoginStatus:String;
 
   constructor(private userService: UserService, private router: Router) { 
     this.LoginStatus = this.userService.loginStatus;
-    console.log(this.LoginStatus)
-
+    this.username = "USERNAME";
   }
 
   
   ngOnInit() { 
+    this.userService.getUserProfile().subscribe(
+      res => {
+        this.userDetails = res['user'];
+        this.username = this.userDetails.fullName.toUpperCase();
+      },
+      err => { 
+        this.username = "USERNAME";
+        console.log(err);
+        
+      }
+    );
     this.userService.loginStatusEmitter.subscribe(status => {
       this.LoginStatus = status;
-      console.log(this.LoginStatus)
-    })
+    });
   }
 
   navbarOpen = false;
