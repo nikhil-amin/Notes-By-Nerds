@@ -11,6 +11,16 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/:id', (req, res) => {
+    if (!ObjectId.isValid(req.params.id))
+        return res.status(400).send(`No notes record with given id : ${req.params.id}`);
+
+    Note.findById(req.params.id, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in Retriving Notes :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
+
 router.post('/', (req, res) => {
     var note = new Note ({
         title: req.body.title,
