@@ -1,0 +1,17 @@
+<div class="heading">
+  <h2>* * * Bookshelf * * *</h2>
+</div>
+<div class="padding container">
+  <div class="notes-container">
+      <div class="notes-card" *ngFor="let note of noteService.notes">
+          <div class="notes-details">
+              <img class="notes-image" src="assets/notes.jpg" alt="" />
+              <div class="notes-desc">
+                  <p class="notes-title">{{note.title}}</p>
+                  <p>by <Span class="notes-author">{{note.author}}</Span></p>
+                  <p>at <span class="notes-price">&#8377;{{note.price}}/-</span></p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

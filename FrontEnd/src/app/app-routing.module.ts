@@ -1,3 +1,4 @@
+import { NotesComponent } from './notes/notes.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   },
   {path:'userprofile',component:UserProfileComponent, canActivate:[AuthGuard]},
   {path:'control-panel',component:ControlPanelComponent, canActivate:[AuthGuard]},
+  {path:'notes',component:NotesComponent},
 ];
 
 @NgModule({

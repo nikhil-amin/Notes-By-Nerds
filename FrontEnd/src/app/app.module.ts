@@ -19,6 +19,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { ControlPanelComponent } from './control-panel/control-panel.component';
 import { FooterComponent } from './footer/footer.component';
+import { NotesComponent } from './notes/notes.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FooterComponent } from './footer/footer.component';
     UserProfileComponent,
     SignInComponent,
     ControlPanelComponent,
-    FooterComponent
+    FooterComponent,
+    NotesComponent
   ],
   imports: [
     BrowserModule,
