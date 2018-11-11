@@ -16,7 +16,9 @@ export class ControlPanelComponent implements OnInit {
   formSuccess = false;
   formFailure = false;
 
-  constructor(private noteService: NoteService) { }
+  constructor(private noteService: NoteService) { 
+    document.body.style.backgroundImage = "url('assets/homeBG.jpg')";
+  }
 
   ngOnInit() {
     this.resetForm();

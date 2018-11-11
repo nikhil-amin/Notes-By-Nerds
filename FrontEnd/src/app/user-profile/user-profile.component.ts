@@ -9,7 +9,9 @@ import { Router } from "@angular/router";
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) { 
+    document.body.style.backgroundImage = "url('assets/homeBG.jpg')";
+  }
   userDetails;
   ngOnInit() {
     this.userService.getUserProfile().subscribe(

@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+    document.body.style.backgroundImage = "url('assets/homeBG.jpg')";
+  }
 
   ngOnInit() {
   }

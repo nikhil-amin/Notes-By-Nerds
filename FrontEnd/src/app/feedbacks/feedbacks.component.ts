@@ -18,7 +18,6 @@ export class FeedbacksComponent implements OnInit {
   incompleteForm = false;
   constructor(private feedbackService: FeedbackService) { 
     document.body.style.backgroundImage = "url('assets/homeBG.jpg')";
-    // document.body.style.background = '#56baed';
   }
 
   ngOnInit() {

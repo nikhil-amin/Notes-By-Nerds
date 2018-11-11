@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   constructor(private _router:Router) { 
-    // document.body.style.background = 'rgba(0, 0, 0, .6)';
     document.body.style.backgroundImage = "url('assets/homeBG.jpg')";
   }
 

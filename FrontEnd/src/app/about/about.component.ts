@@ -9,7 +9,6 @@ export class AboutComponent implements OnInit {
 
   constructor() { 
     document.body.style.backgroundImage = "url('assets/homeBG.jpg')";
-    // document.body.style.background = '#56baed';
   }
 
   ngOnInit() {

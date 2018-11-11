@@ -9,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotesComponent implements OnInit {
 
-  constructor(private noteService: NoteService) { }
+  constructor(private noteService: NoteService) { 
+    document.body.style.backgroundImage = "url('assets/homeBG.jpg')";
+  }
 
   ngOnInit() {
     this.refreshNoteList();
