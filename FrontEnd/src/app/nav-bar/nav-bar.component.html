@@ -17,6 +17,9 @@
       <li class="nav-item">
         <a class="nav-link" (click)= "toggleNavbar()" [routerLinkActive]="['active']" routerLink="/contact">CONTACT</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)= "toggleNavbar()" [routerLinkActive]="['active']" routerLink="/notes">NOTES</a>
+      </li>
       <!-- <ng-template #anonymousUser> -->
         <li *ngIf="LoginStatus == 'false'" class="nav-item">
           <a class="nav-link" (click)= "toggleNavbar()" [routerLinkActive]="['active']" routerLink="/signup">JOIN-US</a>
