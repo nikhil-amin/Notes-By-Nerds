@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css";
+
 body {
+    overflow-y: scroll;
     padding: 0;
     margin: 0;
     display: flex;
