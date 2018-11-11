@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
-                    <img src="https://avatars0.githubusercontent.com/u/34246901?s=460&v=4" alt="" />
+                    <img src="assets/profile.jpg" alt="" />
                     <div class="file btn btn-lg btn-primary">
                         Change Photo
                         <input type="file" name="file" />
@@ -13,12 +13,12 @@
             <div class="col-md-6">
                 <div class="profile-head">
                     <h5>
-                            {{userDetails.fullName.split(' ')[0]}} {{userDetails.fullName.split(' ')[1]}}
+                        {{userDetails.fullName.toUpperCase()}}
                     </h5>
                     <h6>
-                        Web Developer and Designer
+                            {{userDetails.city}}
                     </h6>
-                    <p class="proile-rating">Class Of : <span>2019</span></p>
+                    <p class="proile-rating"><span>City : </span> MANGALORE</p>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
@@ -49,18 +49,18 @@
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <div class="row">
                             <div class="col-md-6">
-                                <label>USN</label>
+                                <label>First Name</label>
                             </div>
                             <div class="col-md-6">
-                                <p>4PA15CS073</p>
+                                <p> {{userDetails.fullName.split(' ')[0]}} </p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Name</label>
+                                <label>Last Name</label>
                             </div>
                             <div class="col-md-6">
-                                <p>{{userDetails.fullName}}</p>
+                                <p> {{userDetails.fullName.split(' ')[1]}} </p>
                             </div>
                         </div>
                         <div class="row">
@@ -81,10 +81,10 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Profession</label>
+                                <label>Country</label>
                             </div>
                             <div class="col-md-6">
-                                <p>Web Developer and Designer</p>
+                                <p>India</p>
                             </div>
                         </div>
                     </div>

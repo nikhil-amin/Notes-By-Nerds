@@ -1,3 +1,7 @@
+a {
+    text-decoration: none;
+}
+
 .fa {
     font-size: 20px;
     padding: 10px;
@@ -61,6 +65,10 @@
     border-radius: 0;
     font-size: 15px;
     background: #212529b8;
+}
+
+.profile-img .file :hover {
+    cursor: pointer;
 }
 
 .profile-img .file input {
