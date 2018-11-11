@@ -21,6 +21,27 @@ app-root {
     align-self: auto;
     display: block;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #A9A9A9;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #1f1d1d; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #413d3d; 
+}
+
 .myLogo {
     display: block;
     width: 100px;
