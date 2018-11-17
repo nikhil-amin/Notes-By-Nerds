@@ -1,62 +1,94 @@
-<div class="row">
-  <div class="col-md-5">
-    <div class="wrapper"> 
-      <div id="formContent">
-        <h2 class="underlineHover"> Add Notes </h2>
-        <form #noteForm="ngForm" (ngSubmit)="onSubmit(noteForm)">
-          <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="noteService.selectedNote._id">
-          <input type="text" name="title" #title="ngModel" [(ngModel)]="noteService.selectedNote.title" placeholder="Enter Book Title" required>
-          <input type="text" name="author" #author="ngModel" [(ngModel)]="noteService.selectedNote.author" placeholder="Enter Book Author">
-          <input type="text" name="price" #price="ngModel" [(ngModel)]="noteService.selectedNote.price" placeholder="Enter Book Price (in &#8377;)">
-          <input type="text" name="uploaderName" #uploaderName="ngModel" [(ngModel)]="noteService.selectedNote.uploaderName" placeholder="Enter Your Fullname">
-          <input type="text" name="uploaderEmail" #uploaderEmail="ngModel" [(ngModel)]="noteService.selectedNote.uploaderEmail" placeholder="Enter Your Email">
-          <input type="submit" value="Submit">
-          <input type="button" (click)="resetForm(noteForm)" value="Reset">
-        
-        </form>
-        <!-- Success message -->
-        <div class="success" *ngIf='formSuccess'>
-            Saved successfully
-        </div>
-          
-          <!-- Error message -->
-        <div class="alert" *ngIf='formFailure'>
-            serverErrorMessages
+<div class="container emp-cpanel">
+  <form method="post">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="cpanel-head">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                aria-selected="true">Add Notes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="cpanel-tab" data-toggle="tab" href="#cpanel" role="tab" aria-controls="cpanel"
+                aria-selected="false">Your Notes</a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-md-7">
-      <div class="wrapper"> 
-        <div id="formContent">
-          <h2 class="underlineHover"> Your Notes </h2>
-          <table class="table table-striped" style="overflow-x: hidden;">
-              <thead>
-                <tr>
-                  <th>Title</th>
-                  <th>Author</th>
-                  <th>Price</th>
-                  <th></th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tr *ngFor="let note of noteService.notes">
-                <td>{{note.title}}</td>
-                <td>{{note.author}}</td>
-                <td>&#8377; {{note.price}}/-</td>
-                <td>
-                      <button type="button" (click)="onEdit(note)" class="btn btn-warning btn-sm">
-                        <span class="fa fa-pencil"></span>
-                      </button>
-                </td>
-                <td>
-                    <button type="button" (click)="onDelete(note._id,noteForm)" class="btn btn-danger btn-sm">
-                        <span class="fa fa-trash"></span> 
-                    </button>
-                </td>
-              </tr>
-            </table>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="tab-content cpanel-tab" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="wrapper">
+              <div id="formContent">
+                <h2 class="underlineHover"> Add Notes </h2>
+                <form #noteForm="ngForm" (ngSubmit)="onSubmit(noteForm)">
+                  <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="noteService.selectedNote._id">
+                  <input type="text" name="title" #title="ngModel" [(ngModel)]="noteService.selectedNote.title"
+                    placeholder="Enter Book Title" required>
+                  <input type="text" name="author" #author="ngModel" [(ngModel)]="noteService.selectedNote.author"
+                    placeholder="Enter Book Author">
+                  <input type="text" name="price" #price="ngModel" [(ngModel)]="noteService.selectedNote.price"
+                    placeholder="Enter Book Price (in &#8377;)">
+                  <input type="text" name="uploaderName" #uploaderName="ngModel" [(ngModel)]="noteService.selectedNote.uploaderName"
+                    placeholder="Enter Your Fullname">
+                  <input type="text" name="uploaderEmail" #uploaderEmail="ngModel" [(ngModel)]="noteService.selectedNote.uploaderEmail"
+                    placeholder="Enter Your Email">
+                  <input type="submit" value="Submit">
+                  <input type="button" (click)="resetForm(noteForm)" value="Reset">
+
+                </form>
+                <!-- Success message -->
+                <div class="success" *ngIf='formSuccess'>
+                  Saved successfully
+                </div>
+
+                <!-- Error message -->
+                <div class="alert" *ngIf='formFailure'>
+                  serverErrorMessages
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="tab-pane fade" id="cpanel" role="tabpanel" aria-labelledby="cpanel-tab">
+            <div class="wrapper">
+              <div id="formContent">
+                <h2 class="underlineHover"> Your Notes </h2>
+                <div style="overflow-x: auto;">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Price</th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tr *ngFor="let note of noteService.notes">
+                      <td>{{note.title}}</td>
+                      <td>{{note.author}}</td>
+                      <td>&#8377; {{note.price}}/-</td>
+                      <td>
+                        <button type="button" (click)="onEdit(note)" class="btn btn-warning btn-sm">
+                          <span class="fa fa-pencil"></span>
+                        </button>
+                      </td>
+                      <td>
+                        <button type="button" (click)="onDelete(note._id,noteForm)" class="btn btn-danger btn-sm">
+                          <span class="fa fa-trash"></span>
+                        </button>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </form>
 </div>
