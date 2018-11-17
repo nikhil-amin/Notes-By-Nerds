@@ -124,3 +124,48 @@ label.validation-message{
     color: white;
     margin-bottom: 15px;
 }
+
+
+
+.emp-cpanel {
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.cpanel-head .nav-tabs {
+    margin-bottom: 5%;
+}
+
+.cpanel-head .nav-tabs .nav-link {
+    font-weight: 600;
+    border: none;
+}
+
+.cpanel-head .nav-tabs .nav-link.active {
+    border: none;
+    border-bottom: 2px solid #0062cc;
+}
+
+.cpanel-work {
+    padding: 14%;
+    margin-top: -15%;
+}
+
+.cpanel-work p {
+    margin-top: 10%;
+}
+
+.cpanel-work ul {
+    list-style: none;
+}
+
+.cpanel-tab label {
+    font-weight: 600;
+}
+
+.cpanel-tab p {
+    font-weight: 600;
+    color: #0062cc;
+}
