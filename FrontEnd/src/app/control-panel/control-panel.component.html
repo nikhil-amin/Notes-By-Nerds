@@ -1,7 +1,7 @@
 <div class="container emp-cpanel">
   <form method="post">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-8 mx-auto">
         <div class="cpanel-head">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
@@ -17,12 +17,12 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-8 mx-auto">
         <div class="tab-content cpanel-tab" id="myTabContent">
           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div class="wrapper">
               <div id="formContent">
-                <h2 class="underlineHover"> Add Notes </h2>
+                <!-- <h2 class="underlineHover"> Add Notes </h2> -->
                 <form #noteForm="ngForm" (ngSubmit)="onSubmit(noteForm)">
                   <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="noteService.selectedNote._id">
                   <input type="text" name="title" #title="ngModel" [(ngModel)]="noteService.selectedNote.title"
@@ -55,7 +55,7 @@
           <div class="tab-pane fade" id="cpanel" role="tabpanel" aria-labelledby="cpanel-tab">
             <div class="wrapper">
               <div id="formContent">
-                <h2 class="underlineHover"> Your Notes </h2>
+                <!-- <h2 class="underlineHover"> Your Notes </h2> -->
                 <div style="overflow-x: auto;">
                   <table class="table table-striped">
                     <thead>
@@ -72,14 +72,14 @@
                       <td>{{note.author}}</td>
                       <td>&#8377; {{note.price}}/-</td>
                       <td>
-                        <button type="button" (click)="onEdit(note)" class="btn btn-warning btn-sm">
+                        <a aria-selected="false" data-toggle="tab" href="#home" role="tab" aria-controls="home" (click)="onEdit(note)" class="btn btn-warning btn-sm">
                           <span class="fa fa-pencil"></span>
-                        </button>
+                        </a>
                       </td>
                       <td>
-                        <button type="button" (click)="onDelete(note._id,noteForm)" class="btn btn-danger btn-sm">
+                        <a aria-selected="false" data-toggle="tab" href="#home" role="tab" aria-controls="home" (click)="onDelete(note._id,noteForm)" class="btn btn-danger btn-sm">
                           <span class="fa fa-trash"></span>
-                        </button>
+                        </a>
                       </td>
                     </tr>
                   </table>
