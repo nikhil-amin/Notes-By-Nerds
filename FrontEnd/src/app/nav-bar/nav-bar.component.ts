@@ -19,19 +19,21 @@ export class NavBarComponent implements OnInit {
 
   
   ngOnInit() { 
-    this.userService.getUserProfile().subscribe(
-      res => {
-        this.userDetails = res['user'];
-        this.username = this.userDetails.fullName.toUpperCase();
-      },
-      err => { 
-        this.username = "USERNAME";
-        console.log(err);
-        
-      }
-    );
     this.userService.loginStatusEmitter.subscribe(status => {
       this.LoginStatus = status;
+      this.getUserDetails();
+    });
+    this.getUserDetails(); // to load the details for the first time - when page gets refreshed
+  }
+
+  getUserDetails(){
+    this.userService.getUserProfile().subscribe(
+    res => {
+      this.userDetails = res['user'];
+      this.username = this.userDetails.fullName.toUpperCase();
+    }, err => { 
+      this.username = "USERNAME";
+      console.log(err);
     });
   }
 
