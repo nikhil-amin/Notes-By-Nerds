@@ -15,6 +15,7 @@ import { Note } from '../shared/note.model';
 export class ControlPanelComponent implements OnInit {
   formSuccess = false;
   formFailure = false;
+  activeTab = 'yournotes';
 
   constructor(private noteService: NoteService) { 
     document.body.style.backgroundImage = "url('assets/homeBG.jpg')";
@@ -65,8 +66,12 @@ export class ControlPanelComponent implements OnInit {
     }
   }
 
+  switchTab(activeTab){
+    this.activeTab = activeTab;
+  }
   onEdit(note: Note) {
     this.noteService.selectedNote = note;
+    this.activeTab = 'addnotes';
   }
   
   onDelete(_id: string, form: NgForm) {

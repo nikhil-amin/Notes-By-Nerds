@@ -5,11 +5,11 @@
         <div class="cpanel-head">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+              <a class="nav-link active" id="home-tab" (click)="switchTab('addnotes')" [ngClass]="{ 'active':activeTab==='addnotes'}" data-toggle="tab" href="#home" role="tab" aria-controls="home"
                 aria-selected="true">Add Notes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="cpanel-tab" data-toggle="tab" href="#cpanel" role="tab" aria-controls="cpanel"
+              <a class="nav-link" id="cpanel-tab" (click)="switchTab('yournotes')" [ngClass]="{ 'active':activeTab==='yournotes'}" data-toggle="tab" href="#cpanel" role="tab" aria-controls="cpanel"
                 aria-selected="false">Your Notes</a>
             </li>
           </ul>
@@ -19,7 +19,7 @@
     <div class="row">
       <div class="col-md-8 mx-auto">
         <div class="tab-content cpanel-tab" id="myTabContent">
-          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="tab-pane fade show active" id="home" [ngClass]="{ 'active':activeTab==='addnotes'}" role="tabpanel" aria-labelledby="home-tab">
             <div class="wrapper">
               <div id="formContent">
                 <!-- <h2 class="underlineHover"> Add Notes </h2> -->
@@ -52,7 +52,7 @@
             </div>
 
           </div>
-          <div class="tab-pane fade" id="cpanel" role="tabpanel" aria-labelledby="cpanel-tab">
+          <div class="tab-pane fade" id="cpanel" [ngClass]="{ 'active':activeTab==='yournotes'}" role="tabpanel" aria-labelledby="cpanel-tab">
             <div class="wrapper">
               <div id="formContent">
                 <!-- <h2 class="underlineHover"> Your Notes </h2> -->
