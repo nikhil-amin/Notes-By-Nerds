@@ -20,7 +20,7 @@ img {
     border-bottom: 2px solid #5fbae9;
 }
 
-.navbar-nav a:active {
+.navbar-nav .nav-link.active {
     border-bottom: 2px solid #5fbae9;
 }
 
