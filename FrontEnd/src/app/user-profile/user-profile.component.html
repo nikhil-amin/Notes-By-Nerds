@@ -106,3 +106,7 @@
         </div>
     </form>
 </div>
+
+<div id="notification" *ngIf="greetings">
+  Welcome {{userDetails.fullName.split(' ')[0]}}...!
+</div>

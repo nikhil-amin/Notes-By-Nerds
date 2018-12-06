@@ -31,10 +31,11 @@
                     placeholder="Enter Book Author">
                   <input type="text" name="price" #price="ngModel" [(ngModel)]="noteService.selectedNote.price"
                     placeholder="Enter Book Price (in &#8377;)">
-                  <input type="text" name="uploaderName" #uploaderName="ngModel" [(ngModel)]="noteService.selectedNote.uploaderName"
-                    placeholder="Enter Your Fullname">
-                  <input type="text" name="uploaderEmail" #uploaderEmail="ngModel" [(ngModel)]="noteService.selectedNote.uploaderEmail"
-                    placeholder="Enter Your Email">
+                    <hr>
+                  <input type="text" name="uploaderName" value="{{userDetails.fullName}}" #uploaderName="ngModel" [(ngModel)]="noteService.selectedNote.uploaderName"
+                    >
+                  <input type="text" name="uploaderEmail" value="{{userDetails.email}}" #uploaderEmail="ngModel" [(ngModel)]="noteService.selectedNote.uploaderEmail"
+                    >
                   <input type="submit" value="Submit">
                   <input type="button" (click)="resetForm(noteForm)" value="Reset">
 
@@ -91,4 +92,14 @@
       </div>
     </div>
   </form>
+</div>
+
+<div id="notification" *ngIf="submitSuccess">
+  New Notes Added Successfully!
+</div>
+<div id="notification" *ngIf="updateSuccess">
+  Notes Updated Successfully!
+</div>
+<div id="notification" *ngIf="deleteSuccess">
+  Notes Deleted Successfully!
 </div>

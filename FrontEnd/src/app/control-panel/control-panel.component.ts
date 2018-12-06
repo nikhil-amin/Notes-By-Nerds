@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 
 import { NoteService } from '../shared/note.service';
 import { Note } from '../shared/note.model';
+import { UserService } from '../shared/user.service';
 
 // declare var M: any;
 
@@ -13,17 +14,32 @@ import { Note } from '../shared/note.model';
   providers: [NoteService]
 })
 export class ControlPanelComponent implements OnInit {
-  formSuccess = false;
-  formFailure = false;
+  submitSuccess = false;
+  updateSuccess = false;
+  deleteSuccess = false;
   activeTab = 'yournotes';
+  userDetails;
 
-  constructor(private noteService: NoteService) { 
+  constructor(private userService: UserService, private noteService: NoteService) { 
     document.body.style.backgroundImage = "url('assets/homeBG.jpg')";
   }
 
   ngOnInit() {
     this.resetForm();
     this.refreshNoteList();
+    this.userService.loginStatusEmitter.subscribe(status => {
+      this.getUserDetails();
+    });
+    this.getUserDetails();
+  }
+
+  getUserDetails(){
+    this.userService.getUserProfile().subscribe(
+    res => {
+      this.userDetails = res['user'];
+    }, err => { 
+      console.log(err);
+    });
   }
 
   resetForm(form?: NgForm) {
@@ -51,9 +67,8 @@ export class ControlPanelComponent implements OnInit {
         this.resetForm(form);
         this.refreshNoteList();
         this.activeTab = 'yournotes';
-        // this.formSuccess = true;
-        // setTimeout(() => this.formSuccess = false, 4000);
-        // this.formFailure = false;
+        this.submitSuccess = true;
+        setTimeout(() => this.submitSuccess = false, 3000);
       });
     }
     else {
@@ -61,30 +76,27 @@ export class ControlPanelComponent implements OnInit {
         this.resetForm(form);
         this.refreshNoteList();
         this.activeTab = 'yournotes';
-        // this.formSuccess = false;
-        // this.formFailure = true;
-        // setTimeout(() => this.formFailure = false, 4000);
+        this.updateSuccess = true;
+        setTimeout(() => this.updateSuccess = false, 3000);
       });
     }
   }
 
   switchTab(activeTab){
     this.activeTab = activeTab;
-    console.log(this.activeTab);
   }
   onEdit(note: Note) {
     this.noteService.selectedNote = note;
     this.activeTab = 'addnotes';
-    console.log(this.activeTab);
   }
   
   onDelete(_id: string, form: NgForm) {
-    if (confirm('Are you sure to delete this record ?') == true) {
+    if (confirm('Are you sure to delete this notes ?') == true) {
       this.noteService.deleteNote(_id).subscribe((res) => {
         this.refreshNoteList();
         this.resetForm(form);
-        console.log("Deleted Successfully");
-        // M.toast({ html: 'Deleted successfully', classes: 'rounded' });
+        this.deleteSuccess = true;
+        setTimeout(() => this.deleteSuccess = false, 3000);
       });
     }
   }

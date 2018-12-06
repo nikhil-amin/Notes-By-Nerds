@@ -13,7 +13,10 @@ export class UserProfileComponent implements OnInit {
     document.body.style.backgroundImage = "url('assets/homeBG.jpg')";
   }
   userDetails;
+  greetings = false;
   ngOnInit() {
+    this.greetings = true;
+    setTimeout(() => this.greetings = false, 3000);
     this.userService.getUserProfile().subscribe(
       res => {
         this.userDetails = res['user'];
