@@ -9,7 +9,7 @@
                 aria-selected="true">Add Notes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="cpanel-tab" [ngClass]="{ 'active':activeTab==='yournotes'}" data-toggle="tab" href="#cpanel" role="tab" aria-controls="cpanel"
+              <a class="nav-link" id="cpanel-tab" [ngClass]="{ 'active':activeTab==='yournotes'}" (click)="switchTab('yournotes')" data-toggle="tab" href="#cpanel" role="tab" aria-controls="cpanel"
                 aria-selected="false">Your Notes</a>
             </li>
           </ul>
