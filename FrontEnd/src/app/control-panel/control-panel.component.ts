@@ -50,6 +50,7 @@ export class ControlPanelComponent implements OnInit {
       this.noteService.postNote(form.value).subscribe((res) => {
         this.resetForm(form);
         this.refreshNoteList();
+        this.activeTab = 'yournotes';
         // this.formSuccess = true;
         // setTimeout(() => this.formSuccess = false, 4000);
         // this.formFailure = false;
@@ -59,6 +60,7 @@ export class ControlPanelComponent implements OnInit {
       this.noteService.putNote(form.value).subscribe((res) => {
         this.resetForm(form);
         this.refreshNoteList();
+        this.activeTab = 'yournotes';
         // this.formSuccess = false;
         // this.formFailure = true;
         // setTimeout(() => this.formFailure = false, 4000);
@@ -68,10 +70,12 @@ export class ControlPanelComponent implements OnInit {
 
   switchTab(activeTab){
     this.activeTab = activeTab;
+    console.log(this.activeTab);
   }
   onEdit(note: Note) {
     this.noteService.selectedNote = note;
     this.activeTab = 'addnotes';
+    console.log(this.activeTab);
   }
   
   onDelete(_id: string, form: NgForm) {
