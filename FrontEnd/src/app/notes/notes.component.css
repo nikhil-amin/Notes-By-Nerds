@@ -7,7 +7,7 @@
     color: #fff;
     background: rgba(0, 0, 0, 0.4);
     padding: 20px;
-    vertical-align:center;
+    vertical-align: center;
     position:relative;
     left:0;
     right:0;
@@ -64,6 +64,12 @@
 
 .notes-price {
     font-weight: bold;
+}
+
+.notes-uploaderEmail {
+    color: #0000EE;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 @media screen and (min-width: 40em) {
