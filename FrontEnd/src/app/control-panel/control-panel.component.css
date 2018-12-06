@@ -111,20 +111,6 @@ label.validation-message{
     width:50%;
 }
 
-.alert {
-    padding: 20px;
-    background-color: #f44336; /* Red */
-    color: white;
-    margin-bottom: 15px;
-}
-
-.success{
-    padding: 20px;
-    background-color:#249424; /* Green */
-    color: white;
-    margin-bottom: 15px;
-}
-
 .emp-cpanel {
     /* text-align: center; */
     padding: 2%;
@@ -135,16 +121,19 @@ label.validation-message{
 }
 .cpanel-head .nav-tabs {
     margin-bottom: 5%;
+    color: #fff;
 }
 
 .cpanel-head .nav-tabs .nav-link {
     font-weight: 600;
     border: none;
+    color: #ffffff;
 }
 
 .cpanel-head .nav-tabs .nav-link.active {
     border: none;
     border-bottom: 2px solid #0062cc;
+    color: #000000;
 }
 
 .cpanel-work {
