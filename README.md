@@ -26,5 +26,19 @@ Now open your browser and go to http://127.0.0.1:4200
 * you have any suggestion to improve this project
 * you noticed any problem or error
 
+## .env File for Backend format
+Create a `.env` file and paste the following content in backend Folder and change the username and password as required
+```code
+PORT = 3000
+
+MONGO_ONLINE_URL = mongodb://<username>:<password>147233.mlab.com:47233/notesbynerdsdb
+
+MONGO_LOCAL_URL = mongodb://127.0.0.1:27017/notesbynerdsdb
+
+BASE_URL_FRONTEND_1 = http://localhost:4200
+
+BASE_URL_FRONTEND_2 = http://127.0.0.1:4200
+```
+
 ### Author
 * [Nikhil Amin](https://github.com/nikhil-amin)
