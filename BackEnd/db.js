@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 //ONLINE DATABASE
-mongoose.connect('mongodb://root:root073@ds147233.mlab.com:47233/notesbynerdsdb', { useNewUrlParser: true }, (err) => {
+mongoose.connect(process.env.MONGO_ONLINE_URL, { useNewUrlParser: true }, (err) => {
     if (!err)
         console.log('[MLab] MongoDB connection for Notes By Nerds succeeded.');
     else
@@ -9,7 +9,7 @@ mongoose.connect('mongodb://root:root073@ds147233.mlab.com:47233/notesbynerdsdb'
 });
 
 //OFFLINE DATABASE
-// mongoose.connect('mongodb://127.0.0.1:27017/notesbynerdsdb', { useNewUrlParser: true }, (err) => {
+// mongoose.connect(process.env.MONGO_LOCAL_URL, { useNewUrlParser: true }, (err) => {
 //     if (!err)
 //         console.log('[Local] MongoDB connection for Notes By Nerds succeeded.');
 //     else
