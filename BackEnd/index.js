@@ -1,3 +1,4 @@
+require('dotenv').config()
 require('./db.js');
 require('./config/passportConfig');
 
@@ -9,11 +10,12 @@ const passport = require('passport');
 var feedbackController = require('./controllers/feedbackController.js');
 var noteController = require('./controllers/noteController.js');
 const rtsIndex = require('./routes/index-routes');
+const PORT = process.env.PORT;
 
 var app = express();
 
 app.use(bodyParser.json());
-app.use(cors({ origin: ['http://localhost:4200', 'http://127.0.0.1:4200'] }));
+app.use(cors({ origin: [process.env.BASE_URL_FRONTEND_1, process.env.BASE_URL_FRONTEND_2] }));
 app.use(passport.initialize());
 app.use('/feedbacks', feedbackController);
 app.use('/notes', noteController);
@@ -26,9 +28,9 @@ app.use((err, req, res, next) => {
         Object.keys(err.errors).forEach(key => valErrors.push(err.errors[key].message));
         res.status(422).send(valErrors)
     }
-    else{
+    else {
         console.log(err);
     }
 });
 
-app.listen(3000, () => console.log('Server started at port : 3000'));
+app.listen(PORT, () => console.log('Server started at port : ' + PORT));
