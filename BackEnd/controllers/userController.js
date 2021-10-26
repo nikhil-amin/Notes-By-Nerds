@@ -4,27 +4,52 @@ const _ = require('lodash');
 
 const User = mongoose.model('User');
 
-module.exports.register = (req, res, next) => {
-    var user = new User ();
-    user.fullName = req.body.fullName;
-    user.email = req.body.email;
-    user.password = req.body.password;
-    user.city = req.body.city;
-    user.save((err, docs) => {
-        if(!err) { res.send(docs); }
-        else { 
-            if (err.code == 11000)
-                res.status(422).send(['Duplicate email adrress found.']);
-            else
-                return next(err);
-                // console.log('Error in registering user: ' + JSON.stringify(err, undefined, 2));
+/**
+ * @description Register a new user to the platform.
+ * 
+ * @author Roshan Raj
+ * @since 26-10-2021 - Refactored the older method using Promises and async/await.
+ * 
+ * @param {string} fullName 
+ * @param {string} email 
+ * @param {string} password 
+ * @param {string} [city] 
+ * 
+ * @returns {object} User object is returned is registration was a success.
+ */
+let register = async (fullName, email, password, city) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            email = (email).toLowerCase();
+
+            let newUserDetails = {
+                "email": email,
+                "password": password
+            }
+
+            if(fullName)
+                newUserDetails.fullName = fullName;
+
+            if(city)
+                newUserDetails.city = city;
+
+            const newUser = new User(newUserDetails);
+            const user = await newUser.save();
+
+            if(user)
+                return resolve(user);
+
+            return reject(null);
+
+        } catch (exception) {
+            return reject(exception);
         }
-    });
+    })
 }
 
-module.exports.authenticate = (req, res, next) => {
+let authenticate = (req, res, next) => {
     // call for passport authentication
-    passport.authenticate('local', (err, user, info) => {       
+    passport.authenticate('local', (err, user, info) => {
         // error from passport middleware
         if (err) return res.status(400).json(err);
         // registered user
@@ -34,15 +59,19 @@ module.exports.authenticate = (req, res, next) => {
     })(req, res);
 }
 
-module.exports.userProfile = (req, res, next) =>{
+let userProfile = (req, res, next) => {
     User.findOne({ _id: req._id },
         (err, user) => {
             if (!user)
                 return res.status(404).json({ status: false, message: 'User record not found.' });
             else
-                return res.status(200).json({ status: true, user : _.pick(user,['fullName','email']) });
+                return res.status(200).json({ status: true, user: _.pick(user, ['fullName', 'email']) });
         }
     );
 }
 
-// module.exports = router;
+module.exports = {
+    register,
+    authenticate,
+    userProfile
+}
