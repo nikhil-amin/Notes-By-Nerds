@@ -1,4 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css";
 
@@ -8,93 +7,75 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    align-content: stretch;
-    align-items: stretch;
     height: 100vh;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
     background-size: cover;
     background-attachment: fixed;
-    /* font-family: "Roboto",'PT Sans', sans-serif; */
     font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    color: #fff;
 }
+
 app-root {
-    order: 0;
     flex: 1 1 auto;
-    align-self: auto;
     display: block;
+    order: 0;
 }
 
-/* width */
-::-webkit-scrollbar {
-    width: 5px;
-}
+/* Scrollbar Styles */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #A9A9A9; border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: #1f1d1d; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #413d3d; }
 
-/* Track */
-::-webkit-scrollbar-track {
-    background: #A9A9A9;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #1f1d1d; 
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #413d3d; 
-}
-
+/* Logo */
 .myLogo {
     display: block;
-    width: 100px;
-    height: 150px;
+    width: 120px;
+    height: auto;
     position: absolute;
     left: 50%;
-    top: 35%;
-    margin-left: -50px;
+    top: 30%;
+    transform: translateX(-50%);
+    animation: bounceLogo 1s ease-in-out infinite alternate;
+}
 
+/* Logo Bounce Animation */
+@keyframes bounceLogo {
+    0% { transform: translateX(-50%) translateY(0); }
+    100% { transform: translateX(-50%) translateY(-15px); }
 }
+
+/* Loader */
 .loader {
-    display: block;
-    overflow: hidden;
-    text-align: center;
-    margin-top: 10%;
-    font-size: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12%;
+    gap: 10px;
 }
+
 .loader-item {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    margin-left: 2px;
-    background-color: rgba(102, 99, 99, 0.493);
-    color: rgba(212, 207, 207, 0.61);
-    animation-duration: 2000ms;
-    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-    animation-iteration-count: infinite;
+    width: 15px;
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    animation: fade 1s infinite ease-in-out;
 }
-.loader-item:nth-child(1) {
-    animation-delay: 100ms;
-}
-.loader-item:nth-child(2) {
-    animation-delay: 200ms;
-}
-.loader-item:nth-child(3) {
-    animation-delay: 300ms;
-}
-.loader-item:nth-child(4) {
-    animation-delay: 400ms;
-}
-.loader-item:nth-child(5) {
-    animation-delay: 500ms;
-}
-.loader-item:nth-child(6) {
-    animation-delay: 600ms;
-}
-.loader--fade .loader-item {
-    animation-name: fade;
-    animation-duration: 1000ms;
-}
+
+.loader-item:nth-child(1) { animation-delay: 0s; }
+.loader-item:nth-child(2) { animation-delay: 0.1s; }
+.loader-item:nth-child(3) { animation-delay: 0.2s; }
+.loader-item:nth-child(4) { animation-delay: 0.3s; }
+.loader-item:nth-child(5) { animation-delay: 0.4s; }
+.loader-item:nth-child(6) { animation-delay: 0.5s; }
+
 @keyframes fade {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
-}  
+    0%, 100% { opacity: 0; transform: scale(0.7); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .myLogo { width: 90px; top: 25%; }
+    .loader-item { width: 12px; height: 12px; }
+}
